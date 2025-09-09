@@ -145,10 +145,51 @@
     /* ===== Reveal on scroll ===== */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease, transform .7s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
+    /* ===== Responsive Fixes ===== */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-card {
+    margin-top: 20px;
+  }
+}
 
-    /* ===== Responsive ===== */
-    @media (max-width: 1000px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}.contact{grid-template-columns:1fr}.cert-wrap{grid-template-columns:1fr}}
-    @media (max-width: 640px){.projects{grid-template-columns:1fr}nav ul{display:none}}
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* hide normal nav */
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(28px, 8vw, 42px);
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  .btn, .cv-btn {
+    font-size: clamp(12px, 4vw, 16px);
+    padding: 10px 14px;
+  }
+  #micBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 16px;
+    padding: 12px 18px;
+    z-index: 1000;
+  }
+}
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){.card,.hover-reveal,.reveal{transition:none}.typing{animation:none;border-right:none}.aurora{animation:none}html,body{scroll-behavior:auto}}
@@ -761,3 +802,4 @@ window.addEventListener("DOMContentLoaded", () => {
   </script>
 </body>
 </html>
+
